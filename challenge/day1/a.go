@@ -3,6 +3,8 @@ package day1
 import (
 	"fmt"
 
+	"github.com/nlowe/aoc2022/util/gmath"
+
 	"github.com/nlowe/aoc2022/util"
 
 	"github.com/spf13/cobra"
@@ -25,10 +27,7 @@ func partA(challenge *challenge.Input) int {
 	bestElf := 0
 	for line := range challenge.Lines() {
 		if line == "" {
-			if currentElf > bestElf {
-				bestElf = currentElf
-			}
-
+			bestElf = gmath.Max(currentElf, bestElf)
 			currentElf = 0
 			continue
 		}
@@ -37,11 +36,7 @@ func partA(challenge *challenge.Input) int {
 		currentElf += v
 	}
 
-	if currentElf != 0 {
-		if currentElf > bestElf {
-			bestElf = currentElf
-		}
-	}
-
+	// And once more in case there's no trailing newline
+	bestElf = gmath.Max(currentElf, bestElf)
 	return bestElf
 }

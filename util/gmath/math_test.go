@@ -1,4 +1,4 @@
-package util
+package gmath
 
 import (
 	"fmt"
@@ -23,7 +23,7 @@ func TestIntMin(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(fmt.Sprintf("%d %d", tt.a, tt.b), func(t *testing.T) {
-			assert.Equal(t, tt.expected, IntMin(tt.a, tt.b))
+			assert.Equal(t, tt.expected, Min(tt.a, tt.b))
 		})
 	}
 }
@@ -42,7 +42,7 @@ func TestIntMax(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(fmt.Sprintf("%d %d", tt.a, tt.b), func(t *testing.T) {
-			assert.Equal(t, tt.expected, IntMax(tt.a, tt.b))
+			assert.Equal(t, tt.expected, Max(tt.a, tt.b))
 		})
 	}
 }
@@ -61,13 +61,13 @@ func TestIntClamp(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(fmt.Sprintf("%d <= %d <= %d", tt.low, tt.n, tt.high), func(t *testing.T) {
-			assert.Equal(t, tt.expected, IntClamp(tt.low, tt.n, tt.high))
+			assert.Equal(t, tt.expected, Clamp(tt.low, tt.n, tt.high))
 		})
 	}
 
 	t.Run("Panics if low > high", func(t *testing.T) {
-		assert.PanicsWithError(t, "IntClamp: low cannot be > high: 2 > 1", func() {
-			_ = IntClamp(2, 0, 1)
+		assert.PanicsWithError(t, "Clamp: low cannot be > high: 2 > 1", func() {
+			_ = Clamp(2, 0, 1)
 		})
 	})
 }

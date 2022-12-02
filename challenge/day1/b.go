@@ -37,6 +37,7 @@ func partB(challenge *challenge.Input) int {
 		currentElf += v
 	}
 
+	// And once more in case there's no trailing newline
 	if currentElf != 0 {
 		topThree = populatePodium(currentElf, topThree)
 	}

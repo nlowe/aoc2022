@@ -11,6 +11,8 @@ import (
 	"text/template"
 	"time"
 
+	"github.com/nlowe/aoc2022/util/gmath"
+
 	"github.com/nlowe/aoc2022/util"
 )
 
@@ -72,10 +74,10 @@ func dayLimit(now time.Time) int {
 
 	// Challenges unlock at 0500 UTC
 	if now.Hour() < 5 {
-		return util.IntClamp(0, now.Day()-1, 25)
+		return gmath.Clamp(0, now.Day()-1, 25)
 	}
 
-	return util.IntClamp(0, now.Day(), 25)
+	return gmath.Clamp(0, now.Day(), 25)
 }
 
 func genDay(n int) {
