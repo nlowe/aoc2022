@@ -24,8 +24,8 @@ func partB(challenge *challenge.Input) int {
 	unparsed := challenge.LineSlice()
 	for i := 0; i < len(unparsed); i += 3 {
 		shared := pack(unparsed[i])
-		shared &= pack(unparsed[i+2])
 		shared &= pack(unparsed[i+1])
+		shared &= pack(unparsed[i+2])
 
 		sum += badge(shared)
 	}
