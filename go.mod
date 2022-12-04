@@ -11,6 +11,7 @@ require (
 )
 
 require (
+	github.com/beefsack/go-astar v0.0.0-20200827232313-4ecf9e304482 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
