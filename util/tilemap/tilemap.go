@@ -98,7 +98,7 @@ type Map[T any] struct {
 // FromInput creates a Map of runes from the input where each line is one row in the map and each rune in each line
 // is a column.
 func FromInput(input *challenge.Input) *Map[rune] {
-	return FromInputOf[rune](input, func(v rune) rune { return v })
+	return FromInputOf[rune](input, ToRunes)
 }
 
 // FromInputOf creates a Map of the specified type from the input where each line is one row in the map and each
