@@ -69,6 +69,31 @@ func (c *Input) Lines() <-chan string {
 	return c.lines
 }
 
+func (c *Input) Sections() <-chan string {
+	sections := make(chan string)
+	go func() {
+		defer close(sections)
+		section := strings.Builder{}
+
+		for line := range c.lines {
+			section.WriteString(line)
+
+			if line == "" {
+				sections <- strings.TrimSpace(section.String())
+				section.Reset()
+			} else {
+				section.WriteRune('\n')
+			}
+		}
+
+		if section.Len() != 0 {
+			sections <- strings.TrimSpace(section.String())
+		}
+	}()
+
+	return sections
+}
+
 func (c *Input) Ints() <-chan int {
 	result := make(chan int)
 
@@ -94,6 +119,14 @@ func (c *Input) LineSlice() (result []string) {
 func (c *Input) IntSlice() (result []int) {
 	for line := range c.Lines() {
 		result = append(result, util.MustAtoI(line))
+	}
+
+	return
+}
+
+func (c *Input) SectionSlice() (result []string) {
+	for section := range c.Sections() {
+		result = append(result, section)
 	}
 
 	return
