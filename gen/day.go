@@ -38,6 +38,10 @@ type metadata struct {
 func main() {
 	n := dayLimit(time.Now())
 
+	if len(os.Args) > 1 {
+		n = util.MustAtoI(os.Args[1])
+	}
+
 	p, err := util.ChallengePath()
 	if err != nil {
 		abort(err)
