@@ -1,4 +1,4 @@
-module github.com/nlowe/aoc2022
+module aoc-go-22
 
 go 1.19
 

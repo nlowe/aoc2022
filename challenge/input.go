@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/nlowe/aoc2022/util"
+	"aoc-go-22/util"
 
 	"github.com/spf13/viper"
 )

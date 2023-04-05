@@ -1,6 +1,6 @@
 package tilemap
 
-import "github.com/nlowe/aoc2022/util"
+import "aoc-go-22/util"
 
 func ToRunes(v rune) rune {
 	return v

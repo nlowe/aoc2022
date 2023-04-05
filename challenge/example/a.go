@@ -3,9 +3,10 @@ package example
 import (
 	"fmt"
 
-	"github.com/nlowe/aoc2022/challenge"
-	"github.com/nlowe/aoc2022/util"
 	"github.com/spf13/cobra"
+
+	"aoc-go-22/challenge"
+	"aoc-go-22/util"
 )
 
 func aCommand() *cobra.Command {

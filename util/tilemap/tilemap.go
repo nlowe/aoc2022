@@ -5,8 +5,8 @@ import (
 
 	"github.com/beefsack/go-astar"
 
-	"github.com/nlowe/aoc2022/challenge"
-	"github.com/nlowe/aoc2022/util/gmath"
+	"aoc-go-22/challenge"
+	"aoc-go-22/util/gmath"
 )
 
 // Container represents the intermediate object stored in the tile map. This container type implements astar.Pather

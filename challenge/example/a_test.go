@@ -3,7 +3,8 @@ package example
 import (
 	"testing"
 
-	"github.com/nlowe/aoc2022/challenge"
+	"aoc-go-22/challenge"
+
 	"github.com/stretchr/testify/require"
 )
 
